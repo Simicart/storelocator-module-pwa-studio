@@ -69,6 +69,7 @@ const StoreLocator = (props) => {
     )
     const handleSelectFilter = useCallback(
         (e) => {
+            setDirections(null)
             if (centerGPS) {
                 if (dataStoreLocatorConfig.MpStoreLocatorConfig.distance_unit !== null) {
                     if (dataStoreLocatorConfig.MpStoreLocatorConfig.distance_unit === 'km') {
