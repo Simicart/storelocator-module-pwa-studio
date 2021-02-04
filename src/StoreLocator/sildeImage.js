@@ -7,7 +7,7 @@ const SlideImage = (props) => {
     let renderCarousel
     if (location !== null) {
         listImage =  JSON.parse(location.images)
-        const itemImage = listImage.map(item => <Item>
+        const itemImage = listImage.map((item,index) => <Item key={index}>
             <img src={item.file} width="100%"/>
         </Item>)
          renderCarousel = location.images !== '[]' ? (<Carousel itemsToShow={5}>

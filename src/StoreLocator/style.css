@@ -4,6 +4,47 @@
     margin-top: 30px;
     min-height: 600px;
 }
+
+.banner{
+    min-height: 333px;
+    display: flex;
+}
+.banner img{
+    width: 100%;
+    height: auto;
+}
+.bannerLeft{
+    width: 50%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: flex-start;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    padding-left: 85px;
+    padding-top: 100px;
+    text-align: left;
+    
+}
+
+.bannerLeft .title{
+    font-size: 40px;
+}
+.bannerLeft .subTitle{
+    width: 306px;
+    margin-top: 3px;
+}
+.bannerRight{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 80px;
+    padding-bottom: 45px;
+}
+.bannerRight img{
+    width: 285px;
+    height: 224px;
+}
 .store{
     width: 35%;
     height: auto;
@@ -71,12 +112,13 @@ button img {
     max-width: 80%;
     border-radius: 4px;
     position: relative;
-    max-height: 500px;
+    min-height: 500px;
 }
 
 .storeLocal .listStore{
     width: 100%;
     overflow-y: scroll;
+    max-height: 500px;
     
 }
 .noResuilt{
@@ -88,8 +130,6 @@ button img {
     margin-top: 10px;
     background-color: white;
     
-    
-
 }
 .storeLocal .storeDetails{
     position: absolute;
@@ -103,13 +143,11 @@ button img {
     
 }
 
-/* .storeLocal .storeDetails .btn-back:hover{
-    cursor: pointer;
-} */
 .storeLocal .storeDetails h2{
     font-size: 20px;
     font-weight: 900;
 }
+
 .storeLocal .storeDetails p,h2 {
     margin-bottom: 20px;
 }
@@ -117,13 +155,35 @@ button img {
     display: flex;
     align-items: center;
 }
+.store .storeDetails .btnBack{
+    cursor: pointer;
+}
+.store .storeDetails .getDirection{
 
+}
+.store .storeDetails .getDirection svg{
+    min-width: 4em;
+    min-height: 4em;
+    margin-right: 40px;
+}
+.store .storeDetails .getDirection .btnGetDirection{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 26px;
+}
+.store .storeDetails .getDirection .listDirection{
+    display: block;
+}
+.store .storeDetails .getDirection .noShowDirection{
+    display: none;
+}
 .storeLocal .storeDetails p svg {
     width: 1.5em;
     height: 1.5em;
     opacity: 0.5;
     margin-right: 10px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 .storeLocal .storeDetails p .iconDoubleDown{
     width: 0.6em;
@@ -131,10 +191,17 @@ button img {
     margin-right: 0;
     margin-left: 3px;
     opacity: 1;
+    cursor: pointer;
 }
 .storeLocal .storeDetails img {
     width: 100%;
 
+}
+.store .storeDetails p{
+    font-size: 13px;
+}
+.store .storeDetails .phoneTwo{
+    margin-left: 24px;
 }
 .storeLocal .listStore li{
     list-style: none;
@@ -216,4 +283,70 @@ button img {
 }
 .timeInWeeks .timeToday{
     font-weight: 600;
+}
+@media (max-width:1024px){
+    .banner{
+        min-height: 310px;
+
+    }
+    .banner .bannerLeft{
+
+    }
+    .bannerLeft .title{
+        margin-bottom: 30px;
+    }
+    .bannerRight{
+        padding-top: 57px;
+        padding-right: 61px;
+    }
+    .banner .bannerRight img{
+        width: 260px;
+        height: auto;
+    }
+
+}
+@media(max-width:768px){
+    .storeLocator{
+        flex-direction: column-reverse;
+    }
+    .storeLocator .store{
+        width: 100%;
+    }
+    .storeLocator .map{
+        width: 100%;
+        height: 600px;
+    }
+    .banner .bannerLeft{
+
+    }
+    .banner .bannerRight{
+        padding-top: 46px;
+        padding-right: 51px;
+
+    }
+    .banner .bannerRight img{
+        width: 200px;
+    }
+}
+@media(max-width:414px){
+    .banner{
+        min-width: 160px;
+    }
+    .banner .bannerLeft{
+        padding-left: 24px;
+    }
+    .banner .bannerLeft .title{
+        font-size: 15px;
+    }
+    .banner .bannerLeft .subTitle{
+        width: 180px;
+    }
+    .banner .bannerRight{
+        padding-top: 30px;
+        padding-right: 25px;
+
+    }
+    .banner .bannerRight img{
+        width: 130px;
+    }
 }

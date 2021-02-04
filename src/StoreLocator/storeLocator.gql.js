@@ -34,8 +34,8 @@ query MpStoreLocatorConfig{
 `
 
 export const GET_MP_STORELOCATOR_LOCATIONS = gql`
-query MpStoreLocatorLocations{
-  MpStoreLocatorLocations{
+query MpStoreLocatorLocations($currentPage:Int!,$pageSize:Int!){
+  MpStoreLocatorLocations(pageSize:$pageSize,currentPage:$currentPage){
     total_count
     items{
       city

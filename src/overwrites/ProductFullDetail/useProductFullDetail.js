@@ -324,10 +324,12 @@ export const useProductFullDetail = props => {
         [errorAddingConfigurableProduct, errorAddingSimpleProduct,errorLocationStore]
     );
     let listAllStore
-    if(dataLocationStore){
-
+    if(!loadingLocationStore&&dataLocationStore){
          listAllStore = dataLocationStore.MpStoreLocatorLocations.items.map(item=>item)
+         console.log(listAllStore);
+         
     }
+
     const storePickUpID = product.mp_pickup_locations.split(',').map((item)=>
             {
                 if(item !== ""){
@@ -338,19 +340,22 @@ export const useProductFullDetail = props => {
             })
     let listStorePickUp=Array();
     const fetchStore = (listStore) =>{
-        storePickUpID.map(pickUpId=>{
-            listStore.map(item=>{
-               if(pickUpId == item.location_id){
-                   listStorePickUp.push(item)
-               }
-               
+        if (listStore.length >0) {
+            
+            storePickUpID.map(pickUpId=>{
+                listStore.map(item=>{
+                   if(pickUpId == item.location_id){
+                       listStorePickUp.push(item)
+                   }
+                   
+                })
+    
             })
-
-        })
-        return listStore
+            return listStore
+        }
     }
     const store = fetchStore(listAllStore)
-    console.log(listStorePickUp);
+    // console.log(store);
     return {
         breadcrumbCategoryId,
         errorMessage: derivedErrorMessage,
