@@ -82,7 +82,7 @@ useEffect(() => {
 
 }, [storeLatLng,centerGPS])
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: 'AIzaSyD-87y9RrPsCJLNDTZ72oiwbaLxqJ0cgjE'
+    googleMapsApiKey: MpStoreLocatorConfig.keyMap
   })
 
   const options = {
