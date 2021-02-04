@@ -148,7 +148,11 @@ const StoreLocator = (props) => {
             if (loadingStoreLocatorLocation || errorStoreLocatorLocation) {
                 return
             }else{
-                listStore = dataStoreLocatorLocation.MpStoreLocatorLocations.items
+              
+                let newList = dataStoreLocatorLocation.MpStoreLocatorLocations.items
+                newList = JSON.parse(JSON.stringify(newList))
+                listStore = newList.reverse()
+            
             }
         }
         if (centerGPS && valueFilterRadius && !directions) {
@@ -156,10 +160,15 @@ const StoreLocator = (props) => {
             setDirections(null)
             listStore = listFilterRadius
         }else{
-            listStore = dataStoreLocatorLocation.MpStoreLocatorLocations.items
+            let newList = dataStoreLocatorLocation.MpStoreLocatorLocations.items
+            newList = JSON.parse(JSON.stringify(newList))
+            listStore = newList.reverse()
+           
         }
         if (dataSearch) {
-            listStore = dataSearch.MpStoreLocatorLocations.items
+            let newList = dataSearch.MpStoreLocatorLocations.items
+            newList = JSON.parse(JSON.stringify(newList))
+            listStore = newList.reverse()
             
         }
         setStore(listStore)
@@ -177,6 +186,7 @@ const StoreLocator = (props) => {
     if (errorStoreLocatorConfig || errorStoreLocatorLocation || errorDataSearch) {
         return 'err'
     }
+    
 
     const { items: listStore } = dataStoreLocatorLocation.MpStoreLocatorLocations
     const { MpStoreLocatorConfig } = dataStoreLocatorConfig
@@ -336,7 +346,7 @@ const StoreLocator = (props) => {
                     <div className={classes.storeLocal}>
                         <ul className={classes.listStore}>
                             {
-                                store.map((store, index) => (
+                               store.length>0? store.map((store, index) => (
                                     <li key={index} onClick={handleClickStore(store, index)}>
                                         <div className={classes.storeItem}>
                                             <div className={classes.storeItemImg}>
@@ -366,7 +376,9 @@ const StoreLocator = (props) => {
                                             Detail +
                                         </div>
                                     </li>
-                                ))
+                                )):<div className={classes.noResuilt}>
+                                    No store ++++
+                                </div>
                             }
                             {
                                 isShowDetail === true && location !== null ?
