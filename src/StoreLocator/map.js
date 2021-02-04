@@ -8,7 +8,7 @@ const containerStyle = {
 };
 const Map = props => {
   const {
-    listStore,
+    listItem,
     keyStore,
     MpStoreLocatorConfig,
     onMapLoad,
@@ -20,7 +20,7 @@ const Map = props => {
     storeLatLng,
     getDirection,direct
   } = props;
-  const [markers, setMarkers] = useState(listStore);
+  const [markers, setMarkers] = useState(listItem);
   const [selected, setSelected] = useState(null);
   const [keyStoreItem, setKeyStoreItem] = useState(keyStore)
   const [centerMap, setCenterMap] = useState({

@@ -217,6 +217,7 @@ button img {
 }
 .storeLocal .storeItem .storeItemImg{
     width: 50%;
+    padding-right: 20px;
 }
 .storeLocal .storeItemInfo{
     width: 50%;

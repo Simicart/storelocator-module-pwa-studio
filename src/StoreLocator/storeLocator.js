@@ -24,7 +24,6 @@ const StoreLocator = (props) => {
     const [valueSearch, setValueSearch] = useState('')
     const [centerGPS, setCenterGPS] = useState(null)
     const [listFilterRadius, setListFilterRadius] = useState()
-    const [listSearch, setListSearch] = useState()
     const [showTime, setShowTime] = useState(false)
     const [showPhone, setShowPhone] = useState(false)
     const [directions, setDirections] = useState(null)
@@ -57,10 +56,16 @@ const StoreLocator = (props) => {
         (value) => setListFilterRadius(value),
         [valueFilterRadius],
     )
-    const handleDataSearch = useCallback(
-        (value) => {
-            setListSearch(value)
-        },[listSearch,dataSearch]
+    const handleOnkeyDown = useCallback(
+        (e) => {
+           if(e.key === 'Enter'){
+               searchStoreByName({
+                   variables:{
+                       name:`%${valueSearch}%`
+                   }
+               })
+           }
+        }
     )
     const handleSelectFilter = useCallback(
         (e) => {
@@ -130,6 +135,13 @@ const StoreLocator = (props) => {
         },
         [valueSearch],
     )
+    const handleClickSearchBar = useCallback(
+        () => {
+            setDirections(null)
+            setIsShowDetail(false)
+            setStore(dataStoreLocatorLocation.MpStoreLocatorLocations.items)
+        }
+    )
     useEffect(() => {
         let listStore = []
         if (!valueSearch && !centerGPS && !valueFilterRadius) {
@@ -143,11 +155,12 @@ const StoreLocator = (props) => {
             setValueSearch('')
             setDirections(null)
             listStore = listFilterRadius
+        }else{
+            listStore = dataStoreLocatorLocation.MpStoreLocatorLocations.items
         }
-        if (valueSearch && dataSearch) {
-            setCenterGPS(null)
-            setValueFilterRadius(null)
+        if (dataSearch) {
             listStore = dataSearch.MpStoreLocatorLocations.items
+            
         }
         setStore(listStore)
     }, [valueSearch,
@@ -272,9 +285,9 @@ const StoreLocator = (props) => {
                         </span>
 
                         <input type='text' value={valueSearch}
-                            onClick={() => setIsShowDetail(false)}
+                            onClick={handleClickSearchBar}
                             onChange={handleChangeSearch}
-                            
+                            onKeyDown={handleOnkeyDown}
                         />
                         <div className={`${classes.iconRight}`}>
                             <svg
@@ -490,7 +503,7 @@ const StoreLocator = (props) => {
                                         }
                                         <p className={classes.imageDetail}>
                                             {
-                                                location.images!=='[]s'&&<img src={handleImage(location.images)} alt="images store" />
+                                                location.images!=='[]'&&<img src={handleImage(location.images)} alt="images store" />
                                             }
                                         </p>
                                     </div> : null
@@ -515,7 +528,7 @@ const StoreLocator = (props) => {
                 </div>
                 <div className={classes.map}>
                     <Map
-                        listStore={listStore}
+                        listItem={listStore}
                         MpStoreLocatorConfig={MpStoreLocatorConfig}
                         keyStore={keyStore}
                         onMapLoad={onMapLoad}
