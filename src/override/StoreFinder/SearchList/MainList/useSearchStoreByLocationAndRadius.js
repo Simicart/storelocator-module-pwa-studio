@@ -75,7 +75,6 @@ export const useSearchStoreByLocationAndRadius = (props) => {
             variables: {
                 cartId: cartId
             },
-            onCompleted: data => console.log(data)
         }
     )
 

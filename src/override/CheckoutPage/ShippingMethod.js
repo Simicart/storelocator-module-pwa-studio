@@ -86,6 +86,7 @@ const ShippingMethod = props => {
                         saveLocationError={saveLocationError}
                         storePickupAddress={storePickupAddress}
                         storePickupDate={storePickupDate}
+                        storePickupTime={storePickupTime}
                         cartId={cartId}
                     />
                 </div>

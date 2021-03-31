@@ -61,7 +61,7 @@ const StorePickup = (props) => {
                 onClick={showStorePickupMode}
             >{chosenStore ? 'Change Store' : 'Select Store'}</h3>
 
-            {chosenStore && (
+            {!!chosenStore && (
                 <div style={{
                     marginTop: 10
                 }}>

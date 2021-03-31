@@ -21,8 +21,6 @@ export default class TestAnime_Unmount extends Component {
             translateY: [-64, 0],
             delay: (el, i) => i * 200,
             duration: 2000,
-            begin: () => console.log('begin'),
-            complete: () => console.log('complete')
         }
 
         return (

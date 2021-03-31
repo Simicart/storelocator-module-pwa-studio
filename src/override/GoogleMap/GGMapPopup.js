@@ -16,6 +16,7 @@ const GgMapPopup = (props) => {
 
     const storePickupAddress = props ? props.storePickupAddress : null;
     const storePickupDate = props ? props.storePickupDate : null;
+    const storePickupTime = props ? props.storePickupTime : null;
 
     const cartId = props ? props.cartId : null;
 
@@ -28,7 +29,7 @@ const GgMapPopup = (props) => {
     const [chosenStoreAddress, setChosenStoreAddress] = useState(storePickupAddress)
     const [chosenDate, setChosenDate] = useState(storePickupDate)
     const [chosenStoreTime, setChosenStoreTime] = useState('')
-    const [storeWorkingTime, setWorkingTime] = useState(null)
+    const [storeWorkingTime, setWorkingTime] = useState(storePickupTime)
 
     const [showError, setShowError] = useState(false)
 
@@ -120,7 +121,7 @@ const GgMapPopup = (props) => {
                         title={'Pickup Time'}
                         handleChange={setChosenStoreTime}
                         value={storeWorkingTime}
-                        hidden={!chosenDate || !chosenStoreId}
+                        hidden={!chosenDate || !chosenStoreAddress}
                         locationId={chosenStoreId}
                         chosenDate={chosenDate}
                     />

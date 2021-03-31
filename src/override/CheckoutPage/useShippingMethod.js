@@ -184,21 +184,20 @@ export const useShippingMethod = props => {
     )
 
     const showStorePickupMode = useCallback(() => {
+        setStorePickupAddress(null)
+        setStorePickupDate(null)
+        setStorePickupTime(null)
         setSelectingStorePickup(true)
-    }, [setSelectingStorePickup])
+    }, [setSelectingStorePickup, setStorePickupAddress, setStorePickupDate, setStorePickupTime])
 
     const cancelShowStorePickup = useCallback(() => {
+
         setSelectingStorePickup(false)
     }, [setSelectingStorePickup])
 
     const submitStorePickup = useCallback(async (store) => {
         const {address, date, id, time} = store || {}
-        // console.log(store || {})
-        // console.log('yes it is')
-        //
-        // console.log(id !== undefined ? id : 'Oh no')
-        // console.log(time !== undefined ? time : 'Oh no')
-        console.log(date.toString() + ', ' + time.toString())
+
 
         return saveLocation({
             variables: {
