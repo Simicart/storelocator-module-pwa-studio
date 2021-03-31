@@ -1,7 +1,7 @@
 {
-  "name": "@simicart/storelocator",
-  "author": "Nguyen Dinh Duc <nguyendinhduc29041999@gmail.com>",
-  "version": "0.0.0",
+  "name": "@simicart/store_locator",
+  "author": "alitonia <hoang.h.nguyenvn@gmail.com>",
+  "version": "1.0.0",
   "main": "src/index.js",
   "pwa-studio": {
     "targets": {
@@ -21,11 +21,6 @@
       "yarn format"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "peerDependencies": {
     "@magento/pwa-buildpack": ">=6.0.0",
     "react": "~16.9.0",
@@ -35,8 +30,6 @@
     "@babel/core": "^7.11.6",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-syntax-class-properties": "^7.12.1",
-    "@reach/combobox": "^0.12.1",
-    "@react-google-maps/api": "^2.1.0",
     "@testing-library/react": "^11.1.0",
     "babel-eslint": "~10.0.1",
     "babel-jest": "^26.5.2",
@@ -56,9 +49,16 @@
     "lint-staged": "^10.0.8",
     "prettier": "^1.9.2",
     "prettier-check": "^2.0.0",
-    "react-cool-onclickoutside": "^1.5.9",
-    "react-elastic-carousel": "^0.11.0",
-    "react-test-renderer": "^16.14.0",
-    "styled-components": "^5.2.1"
+    "react-test-renderer": "^16.14.0"
+  },
+  "dependencies": {
+    "animejs": "^3.2.1",
+    "google-map-react": "^2.1.9",
+    "load-google-maps-api": "^2.0.2",
+    "lodash": "^4.17.21",
+    "md5": "^2.3.0",
+    "react-anime": "^4.0.4",
+    "react-feather": "^2.0.9",
+    "use-animate-presence": "^0.5.1"
   }
 }
