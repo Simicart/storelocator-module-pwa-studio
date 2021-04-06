@@ -101,7 +101,7 @@ const WorkTimePicker = (props) => {
         }
     })() : null) || []
 
-    const mainInput = (
+    const mainInput = (timeList && timeList.length > 0) ? (
         <select style={{
             fontSize: 18,
             paddingLeft: 5,
@@ -113,7 +113,7 @@ const WorkTimePicker = (props) => {
                     handleChange(e.target.value)
                 }}
         >
-            <option value={''} hidden={true}></option>
+            <option value={''} hidden={true}/>
             {timeList.map((x, index) => {
                 return <option key={md_hash(x)}
                                value={x}
@@ -122,6 +122,10 @@ const WorkTimePicker = (props) => {
                 </option>
             })}
         </select>
+    ) : (
+        <div style={{marginTop: 5, marginBottom: 5}}>
+            <h3 style={{color: '#c64756'}}>No available time on this day. Please choose another one.</h3>
+        </div>
     )
 
     return (
