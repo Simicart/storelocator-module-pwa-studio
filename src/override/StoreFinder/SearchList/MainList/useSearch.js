@@ -11,6 +11,7 @@ export const useSearch = (props) => {
     } = useFetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?key=${key || ''}&query=${query || ''}`, {
         shouldFetch: !!key && !!query,
         headers: {
+            'Access-Control-Allow-Origin': window.location.protocol + '//' + window.location.host
             //'Access-Control-Allow-Origin': 'http://localhost:10000', // TODO: remove this at end of dev
         },
         shouldDebounce: true,
